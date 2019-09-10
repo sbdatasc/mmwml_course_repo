@@ -1,0 +1,71 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AI Demo</title>
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script type="text/javascript" src="/js/imagenet_classes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">AI Demo</a>
+      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Help</button>
+    </div>
+  </nav>
+  <div class="container">
+    <h2>Image Classifier</h2>
+
+    <div class="container">
+		<div class="resnet-demo-container">
+			<h3>Keras resnet + TensorFlow.js Demo</h3>
+			<div class="demo-wrapper">
+				<div>
+					<button id="load-button" class="input-button" onclick="loadModel()">Load Model</button>
+					<button id="demo-image-button" class="input-button" onclick="loadDemoImage()">Demo Image</button>
+					<label for="select-file-image" class="input-button">
+						Upload Image
+					</label>
+					<input id="select-file-image" type="file" style="display: none;">
+					<div id="progress-box" style="display: none; width: 100% !important;">
+						<img src="assets/loading.gif" id="demo-load" width="100px" />
+						<p style="color: white;">Loading resnet model..</p>
+					</div>
+				</div>
+				<div>
+					<button id="predict-button" class="input-button predict-button">Predict</button>
+				</div>
+			</div>
+			<div class="demo-output">
+				<div class="out-box" id="select-file-box" style="display: none;">
+					<img id='test-image' />
+				</div>
+				<div class="out-box" id="predict-box" style="display: none;">
+					<p id="prediction"></p>
+					<br>
+					<p><b style="color: #c2c2c2 !important; font-style: italic; font-weight: 100; font-size: 11px;">Top-5 Predictions</b></p>
+					<ul id="predict-list">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+  <script src="js/main.js" type="text/javascript"></script>
+</body>
+
+
+</html>
