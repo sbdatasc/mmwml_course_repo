@@ -10,12 +10,14 @@ async function loadModel() {
   loader.style.display = "block";
   modelName = "resnet50";
   model = undefined;
-  model = await tf.loadLayersModel('python/models/model.json');
+  model = await tf.loadLayersModel('https://drive.google.com/drive/folders/1s3YECHXVf4ETG3qor3l0M-VIlCl01EuV?usp=sharing');
   loader.style.display = "none";
   load_button.disabled = true;
   load_button.innerHTML = "Loaded Model";
   console.log("model loaded..");
 }
+
+
 
 $("#select-file-image").change(function() {
   document.getElementById("select-file-box").style.display = "table-cell";
@@ -38,7 +40,7 @@ $("#predict-button").click(async function() {
     alert("Please load the model first..");
   }
   if (document.getElementById("predict-box").style.display == "none") {
-    alert("Please load an image using 'Demo Image' or 'Upload Image' button..");
+    alert("Please load an image using 'Upload Image' button..");
   }
   console.log(model);
   let image = document.getElementById("test-image");
@@ -83,18 +85,4 @@ function preprocessImage(image, modelName) {
   } else {
     alert("Unknown model name..");
   }
-}
-
-function loadDemoImage() {
-  document.getElementById("predict-box").style.display = "table-cell";
-  document.getElementById("prediction").innerHTML = "Click predict to find my label!";
-  document.getElementById("select-file-box").style.display = "table-cell";
-  document.getElementById("predict-list").innerHTML = "";
-
-  base_path = "dataset/test/test_image_";
-  maximum = 4;
-  minimum = 1;
-  var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-  img_path = base_path + randomnumber + ".jpg";
-  document.getElementById("test-image").src = img_path;
 }
